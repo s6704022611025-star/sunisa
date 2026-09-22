@@ -3,102 +3,639 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume - SUNISA</title>
+  <title>Bebell | Software Testing & QA Resume</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Mali / Sarabun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: #eef2f6; padding: 40px 20px; color: #333; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    .header {
-      background: linear-gradient(135deg, #0b1e4f, #1e4ea8);
+    :root {
+      --primary-rose: #f472b6;
+      --deep-rose: #db2777;
+      --lavender: #c084fc;
+      --soft-bg: #fdf8fa;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(253, 232, 241, 0.8);
+      --text-dark: #372836;
+      --text-muted: #836e81;
+      --tag-bg: #fdf2f8;
+      --tag-text: #db2777;
+      --tag-border: #fce7f3;
+      --shadow-soft: 0 10px 30px -5px rgba(244, 114, 182, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fdf4f7 0%, #f7f0fa 50%, #fdf8fb 100%);
+      color: var(--text-dark);
+      padding: 40px 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* Header Banner โทนหวานหรู */
+    .header-card {
+      background: linear-gradient(125deg, #fb7185 0%, #f472b6 40%, #c084fc 100%);
       color: white;
-      border-radius: 16px;
-      padding: 30px;
+      border-radius: 28px;
+      padding: 36px 42px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 16px 36px rgba(244, 114, 182, 0.28);
       margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .header-left { display: flex; align-items: center; gap: 20px; }
-    .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: #fff; }
-    .name-title h1 { font-size: 26px; margin-bottom: 6px; letter-spacing: 1px; }
-    .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; }
-    .role { text-align: right; }
-    .role h2 { font-size: 20px; font-weight: 700; }
-    .role p { font-size: 12px; opacity: 0.8; }
-    .grid { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr; gap: 20px; }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-    .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .card h3 { color: #1e4ea8; font-size: 14px; text-transform: uppercase; margin-bottom: 18px; letter-spacing: 0.5px; border-bottom: 2px solid #eef2f6; padding-bottom: 8px; }
-    .info-group { margin-bottom: 14px; }
-    .info-label { font-size: 11px; color: #888; text-transform: uppercase; }
-    .info-value { font-size: 13px; font-weight: 600; }
-    .list-item { margin-bottom: 16px; }
-    .list-title { font-size: 13px; font-weight: 700; color: #0b1e4f; margin-bottom: 4px; }
-    .list-desc { font-size: 12px; color: #666; line-height: 1.4; }
-    .tag-row { display: flex; justify-content: space-between; align-items: center; }
-    .tag { background: #e8f0fe; color: #1a73e8; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 6px; }
+
+    .header-card::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .header-card::after {
+      content: "✨";
+      position: absolute;
+      font-size: 50px;
+      opacity: 0.15;
+      bottom: 10px;
+      left: 300px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      z-index: 1;
+    }
+
+    .avatar-wrapper {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .avatar-wrapper:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name-title h1 {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(8px);
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .header-right {
+      text-align: right;
+      z-index: 1;
+    }
+
+    .header-right h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.5px;
+    }
+
+    .header-right p {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 3px;
+    }
+
+    /* Grid Layout */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 24px;
+    }
+
+    /* Soft Glass Card */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1.5px solid var(--card-border);
+      margin-bottom: 24px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--deep-rose);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px dashed #fce7f3;
+      padding-bottom: 10px;
+    }
+
+    /* Profile Contact Info */
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .info-value {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      word-break: break-word;
+    }
+
+    /* Skill Tags */
+    .sub-section-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin: 14px 0 8px 0;
+    }
+
+    .skill-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary-rose);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* About me */
+    .about-text {
+      font-size: 14px;
+      color: #4a3e49;
+      line-height: 1.75;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 22px;
+      border-left: 2.5px solid #fbcfe8;
+      margin-bottom: 20px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "🌸";
+      position: absolute;
+      left: -11px;
+      top: -2px;
+      font-size: 13px;
+    }
+
+    .timeline-year {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--deep-rose);
+    }
+
+    .timeline-school {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .timeline-degree {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .timeline-gpa {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid #d1fae5;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: #fffafa;
+      border-radius: 16px;
+      padding: 16px 20px;
+      border: 1.5px solid #fce7f3;
+      margin-bottom: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: #f472b6;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(244, 114, 182, 0.1);
+    }
+
+    .project-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--deep-rose);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: #4a3e49;
+      line-height: 1.65;
+    }
+
+    /* QA Mini Sandbox Interactive Widget */
+    .qa-box {
+      background: #fdf4f7;
+      border: 1.5px dashed var(--primary-rose);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .qa-box-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--deep-rose);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qa-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .qa-input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #fbcfe8;
+      font-size: 12.5px;
+      outline: none;
+      background: white;
+    }
+
+    .qa-btn {
+      background: var(--deep-rose);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .qa-btn:hover {
+      background: #be185d;
+    }
+
+    .qa-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .qa-chip {
+      background: white;
+      border: 1px solid #fbcfe8;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: var(--text-dark);
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .qa-chip:hover {
+      background: #fce7f3;
+    }
+
+    .qa-result {
+      font-size: 11.5px;
+      font-weight: 600;
+      margin-top: 8px;
+      min-height: 18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .header-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+        padding: 28px 20px;
+      }
+      .header-left {
+        flex-direction: column;
+      }
+      .header-right {
+        text-align: center;
+      }
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div class="header">
+    
+    <!-- Header Banner -->
+    <header class="header-card">
       <div class="header-left">
-        <img src="https://via.placeholder.com/150" alt="Profile" class="avatar">
+        <div class="avatar-wrapper">
+          <img src="profile.png" alt="SUNISA SODSRIJAN" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bebell+Sunisa&background=f472b6&color=fff&size=150';">
+        </div>
         <div class="name-title">
-          <h1>SUNISA SODSRIJAN</h1>
+          <h1>SUNISA SODSRIJAN 🎀</h1>
           <span class="badge">CO-OP INTERNSHIP CANDIDATE</span>
         </div>
       </div>
-      <div class="role">
-        <h2>GRAPHIC DESIGNER</h2>
-        <p>PRODUCT & CREATIVE</p>
+      <div class="header-right">
+        <h2>SOFTWARE TESTING</h2>
+        <p>QA / TEST ENGINEER</p>
       </div>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Personal Info</h3>
-        <div class="info-group">
-          <div class="info-label">Email</div>
-          <div class="info-value">your.email@gmail.com</div>
-        </div>
-        <div class="info-group">
-          <div class="info-label">Phone</div>
-          <div class="info-value">+66 9X XXX XXXX</div>
-        </div>
-        <div class="info-group">
-          <div class="info-label">Location</div>
-          <div class="info-value">Bangkok, Thailand</div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Key Competencies</h3>
-        <div class="list-item">
-          <div class="list-title">• Visual & Creative Design</div>
-          <div class="list-desc">ออกแบบสื่อกราฟิก ภาพโฆษณา และสื่อโซเชียลมีเดียให้ตรงตามโจทย์</div>
-        </div>
-        <div class="list-item">
-          <div class="list-title">• Fast Learner & Adaptability</div>
-          <div class="list-desc">เรียนรู้เครื่องมือใหม่ๆ ได้ไว ปรับตัวและทำงานร่วมกับทีมได้อย่างมีประสิทธิภาพ</div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Tools & Experience</h3>
-        <div class="list-item">
-          <div class="tag-row">
-            <div class="list-title">Photoshop / Illustrator</div>
-            <span class="tag">CORE TOOL</span>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="layout-grid">
+
+      <!-- LEFT SIDEBAR -->
+      <aside>
+        <!-- Contact & Profile -->
+        <div class="card">
+          <h3 class="card-title">🌷 Personal Info</h3>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-label">Nickname</span>
+              <span class="info-value">Bebell (เบเบลล์)</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Date of Birth / Age</span>
+              <span class="info-value">02/03/2005 (Age: 21)</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Nationality</span>
+              <span class="info-value">Thai</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <span class="info-value">084-168-5491</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email</span>
+              <span class="info-value">sunisa79655@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <span class="info-value">Bangkok, Thailand</span>
+            </div>
           </div>
-          <div class="list-desc">เครื่องมือหลักสำหรับการตัดต่อภาพ ออกแบบโลโก้ และสื่อกราฟิก</div>
         </div>
-        <div class="list-item">
-          <div class="tag-row">
-            <div class="list-title">Canva / Figma</div>
-            <span class="tag">SKILL</span>
+
+        <!-- Skills -->
+        <div class="card">
+          <h3 class="card-title">🧁 Tech & Skills</h3>
+          
+          <div class="sub-section-title">Programming & Database</div>
+          <div class="skill-tag-group">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">SQL</span>
           </div>
-          <div class="list-desc">ใช้จัดทำเลย์เอาต์ ออกแบบพรีเซนเทชัน และโครงร่างหน้าเว็บ</div>
+
+          <div class="sub-section-title" style="margin-top: 16px;">Tools & IDE</div>
+          <div class="skill-tag-group">
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Visual Studio</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Vite</span>
+          </div>
+
+          <div class="sub-section-title" style="margin-top: 16px;">QA & Testing Competencies</div>
+          <div class="skill-tag-group">
+            <span class="skill-tag">Test Case Design</span>
+            <span class="skill-tag">Boundary Value</span>
+            <span class="skill-tag">Negative Testing</span>
+            <span class="skill-tag">POS Workflows</span>
+          </div>
         </div>
-      </div>
-    </div>
+      </aside>
+
+      <!-- RIGHT MAIN CONTENT -->
+      <section>
+        <!-- About Me -->
+        <div class="card">
+          <h3 class="card-title">💌 About Me</h3>
+          <p class="about-text">
+            A Mathematics and Computer Science student with a solid foundation in <strong>Software Testing Fundamentals</strong> and strong logical thinking skills. Highly motivated to apply knowledge in statistics, algorithms, and programming through a cooperative education program as a <strong>QA / Test Engineer</strong>, contributing to the delivery of high-quality and defect-free software.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="card">
+          <h3 class="card-title">🎓 Education</h3>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2024 - Present</div>
+            <div class="timeline-school">King Mongkut's University of Technology North Bangkok</div>
+            <div class="timeline-degree">Bachelor of Science in Mathematics with Computer Science, Faculty of Applied Science</div>
+            <span class="timeline-gpa">GPA: 2.26</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2018 - 2024</div>
+            <div class="timeline-school">Prasatwittayakarn School</div>
+            <div class="timeline-degree">Science-Mathematics Program</div>
+            <span class="timeline-gpa">GPA: 3.45</span>
+          </div>
+        </div>
+
+        <!-- Mini Projects & Experience -->
+        <div class="card">
+          <h3 class="card-title">🚀 Mini Projects & Testing Experience</h3>
+          
+          <div class="project-card">
+            <div class="project-title">🎮 Web Number Guessing Game (1–100)</div>
+            <div class="project-desc">
+              Developed an interactive web-based number guessing game using <strong>React, TypeScript, and Vite</strong>, focusing on responsive UI design and modern Dark Mode experience with precise input bounds verification.
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">📋 Test Case Design & Execution (50+ Test Cases)</div>
+            <div class="project-desc">
+              Designed and executed comprehensive Test Plans, Test Scenarios, and 50+ Test Cases covering product cataloging, dual-category filtering (dietary food vs. toys), and end-to-end checkout flows.
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">🥩 End-to-End POS & Dining System</div>
+            <div class="project-desc">
+              Designed an end-to-end dining and POS workflow for a Korean BBQ buffet, bridging mobile self-ordering for customers with an operational dashboard for floor staff.
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">🔍 Negative & Boundary Value Testing</div>
+            <div class="project-desc">
+              Performed thorough Boundary Value Testing and Negative Testing on search inputs, testing special characters, numeric strings, leading/trailing whitespace, extreme text lengths, and Thai tone marks.
+            </div>
+          </div>
+
+          <!-- Interactive QA Sandbox Simulation -->
+          <div class="qa-box">
+            <div class="qa-box-title">⚡ Interactive QA Input Validator (Live Demo)</div>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px;">
+              ลองคลิกทดสอบ Payload เพื่อจำลองการตรวจจับ Boundary / Negative Inputs:
+            </p>
+            <div class="qa-input-row">
+              <input type="text" id="qaInput" class="qa-input" placeholder="พิมพ์ข้อความ หรือคลิกตัวอย่างด้านล่าง...">
+              <button class="qa-btn" onclick="testPayload()">Run Test</button>
+            </div>
+            <div class="qa-chips">
+              <span class="qa-chip" onclick="setPayload('สิทธิ์ิ์ิ์ิ์ิ์ิ์ิ์ (Thai tone overflow)')">Thai Tone Mark</span>
+              <span class="qa-chip" onclick="setPayload('   leading whitespace   ')">Whitespace</span>
+              <span class="qa-chip" onclick="setPayload('&lt;script&gt;alert(1)&lt;/script&gt;')">XSS / Special Chars</span>
+              <span class="qa-chip" onclick="setPayload('9999999999999999')">Extreme Digits</span>
+            </div>
+            <div id="qaResult" class="qa-result"></div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
   </div>
+
+  <script>
+    function setPayload(val) {
+      document.getElementById('qaInput').value = val;
+      testPayload();
+    }
+
+    function testPayload() {
+      const val = document.getElementById('qaInput').value;
+      const res = document.getElementById('qaResult');
+      if (!val) {
+        res.innerHTML = '<span style="color:#e11d48;">❌ Please provide input value to test.</span>';
+        return;
+      }
+      if (val.trim() !== val) {
+        res.innerHTML = '<span style="color:#d97706;">⚠️ Warning: Leading or trailing whitespace detected!</span>';
+      } else if (val.includes('<') || val.includes('>')) {
+        res.innerHTML = '<span style="color:#e11d48;">🛡️ Security Flag: Special HTML tags detected (Negative Test Passed).</span>';
+      } else if (val.length > 20) {
+        res.innerHTML = '<span style="color:#d97706;">📏 Boundary Alert: Length > 20 chars (Buffer limit test).</span>';
+      } else {
+        res.innerHTML = '<span style="color:#059669;">✅ Valid Format: Passed standard boundary validation.</span>';
+      }
+    }
+  </script>
+
 </body>
 </html>
