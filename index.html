@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - SUNISA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #eef2f6; padding: 40px 20px; color: #333; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .header {
+      background: linear-gradient(135deg, #0b1e4f, #1e4ea8);
+      color: white;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .header-left { display: flex; align-items: center; gap: 20px; }
+    .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: #fff; }
+    .name-title h1 { font-size: 26px; margin-bottom: 6px; letter-spacing: 1px; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+    .role { text-align: right; }
+    .role h2 { font-size: 20px; font-weight: 700; }
+    .role p { font-size: 12px; opacity: 0.8; }
+    .grid { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr; gap: 20px; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .card h3 { color: #1e4ea8; font-size: 14px; text-transform: uppercase; margin-bottom: 18px; letter-spacing: 0.5px; border-bottom: 2px solid #eef2f6; padding-bottom: 8px; }
+    .info-group { margin-bottom: 14px; }
+    .info-label { font-size: 11px; color: #888; text-transform: uppercase; }
+    .info-value { font-size: 13px; font-weight: 600; }
+    .list-item { margin-bottom: 16px; }
+    .list-title { font-size: 13px; font-weight: 700; color: #0b1e4f; margin-bottom: 4px; }
+    .list-desc { font-size: 12px; color: #666; line-height: 1.4; }
+    .tag-row { display: flex; justify-content: space-between; align-items: center; }
+    .tag { background: #e8f0fe; color: #1a73e8; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <img src="https://via.placeholder.com/150" alt="Profile" class="avatar">
+        <div class="name-title">
+          <h1>SUNISA SODSRIJAN</h1>
+          <span class="badge">CO-OP INTERNSHIP CANDIDATE</span>
+        </div>
+      </div>
+      <div class="role">
+        <h2>GRAPHIC DESIGNER</h2>
+        <p>PRODUCT & CREATIVE</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Personal Info</h3>
+        <div class="info-group">
+          <div class="info-label">Email</div>
+          <div class="info-value">your.email@gmail.com</div>
+        </div>
+        <div class="info-group">
+          <div class="info-label">Phone</div>
+          <div class="info-value">+66 9X XXX XXXX</div>
+        </div>
+        <div class="info-group">
+          <div class="info-label">Location</div>
+          <div class="info-value">Bangkok, Thailand</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Key Competencies</h3>
+        <div class="list-item">
+          <div class="list-title">• Visual & Creative Design</div>
+          <div class="list-desc">ออกแบบสื่อกราฟิก ภาพโฆษณา และสื่อโซเชียลมีเดียให้ตรงตามโจทย์</div>
+        </div>
+        <div class="list-item">
+          <div class="list-title">• Fast Learner & Adaptability</div>
+          <div class="list-desc">เรียนรู้เครื่องมือใหม่ๆ ได้ไว ปรับตัวและทำงานร่วมกับทีมได้อย่างมีประสิทธิภาพ</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Tools & Experience</h3>
+        <div class="list-item">
+          <div class="tag-row">
+            <div class="list-title">Photoshop / Illustrator</div>
+            <span class="tag">CORE TOOL</span>
+          </div>
+          <div class="list-desc">เครื่องมือหลักสำหรับการตัดต่อภาพ ออกแบบโลโก้ และสื่อกราฟิก</div>
+        </div>
+        <div class="list-item">
+          <div class="tag-row">
+            <div class="list-title">Canva / Figma</div>
+            <span class="tag">SKILL</span>
+          </div>
+          <div class="list-desc">ใช้จัดทำเลย์เอาต์ ออกแบบพรีเซนเทชัน และโครงร่างหน้าเว็บ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
